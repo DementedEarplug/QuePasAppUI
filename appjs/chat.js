@@ -21,7 +21,7 @@ angular.module('AppChat').controller('ChatController', ['$http', '$log', '$scope
                         "UserId" : currentUserId
                     });
             var chatid = $routeParams.cid;
-            var reqURL = "http://192.168.0.3:8000/QuePasApp/groups/" + chatid + "/messages";
+            var reqURL = "http://127.0.0.1:8000/QuePasApp/groups/" + chatid + "/messages";
             //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/groups/" + chatid + "/messages";
             $http.get(reqURL).then( function(data){
                 // Get the messages from the server through the rest api
@@ -81,7 +81,7 @@ angular.module('AppChat').controller('ChatController', ['$http', '$log', '$scope
             $log.log("Searching...");
             thisCtrl.messageList = [];
             var chatid = $routeParams.cid;
-            var reqURL = "http://192.168.0.3:8000/QuePasApp/groups/" + chatid + "/messages/search?hashtag=" + thisCtrl.hashtag;
+            var reqURL = "http://127.0.0.1:8000/QuePasApp/groups/" + chatid + "/messages/search?hashtag=" + thisCtrl.hashtag;
             //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/groups/" + chatid + "/messages";
             $http.get(reqURL).then( function(response){
                 // Get the messages from the server through the rest api
@@ -130,11 +130,11 @@ angular.module('AppChat').controller('ChatController', ['$http', '$log', '$scope
                 if(this.textBoxTitle == "Reply to"){
                     $log.log("Replying to " + this.replyText);
                     msgForm.append("msgid", this.replyId);
-                    var reqURL = "http://192.168.0.3:8000/QuePasApp/messages/sendReply";
+                    var reqURL = "http://127.0.0.1:8000/QuePasApp/messages/sendReply";
                     //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/messages/sendReply";
                 }
                 else{
-                    var reqURL = "http://192.168.0.3:8000/QuePasApp/messages/send";
+                    var reqURL = "http://127.0.0.1:8000/QuePasApp/messages/send";
                     //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/messages/send";
                 }
                 $http.post(reqURL, msgForm, {
@@ -197,7 +197,7 @@ angular.module('AppChat').controller('ChatController', ['$http', '$log', '$scope
             likeForm.append("userid", currentUserId);
             likeForm.append("msgid", msg.id);
 
-            var reqURL = "http://192.168.0.3:8000/QuePasApp/messages/sendLike";
+            var reqURL = "http://127.0.0.1:8000/QuePasApp/messages/sendLike";
             //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/messages/sendLike";
     
             $http.post(reqURL, likeForm, {
@@ -231,7 +231,7 @@ angular.module('AppChat').controller('ChatController', ['$http', '$log', '$scope
             dislikeForm.append("userid", currentUserId);
             dislikeForm.append("msgid", msg.id);
 
-            var reqURL = "http://192.168.0.3:8000/QuePasApp/messages/sendDislike";
+            var reqURL = "http://127.0.0.1:8000/QuePasApp/messages/sendDislike";
             //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/messages/sendLike";
     
             $http.post(reqURL, dislikeForm, {
@@ -297,7 +297,7 @@ angular.module('AppChat').controller('ChatController', ['$http', '$log', '$scope
                 msgForm.append("groupId", groupId)
                 msgForm.append("content", msg);
 
-                var reqURL = "http://192.168.0.3:8000/QuePasApp/messages/send";
+                var reqURL = "http://127.0.0.1:8000/QuePasApp/messages/send";
                 //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/messages/send";
                 $http.post(reqURL, msgForm, {
                     transformRequest: angular.identity,
@@ -326,7 +326,7 @@ angular.module('AppChat').controller('ChatController', ['$http', '$log', '$scope
                         }
                     );
 
-                 var reqURL = "http://192.168.0.3:8000/QuePasApp/messages/send";
+                 var reqURL = "http://127.0.0.1:8000/QuePasApp/messages/send";
                 //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/messages/send";
                 $http.post(reqURL, msgForm, {
                     transformRequest: angular.identity,
@@ -354,7 +354,7 @@ angular.module('AppChat').controller('ChatController', ['$http', '$log', '$scope
                             $log.error(response.data);
                         }
                     );
-                    var reqURL = "http://192.168.0.3:8000/QuePasApp/messages/send";
+                    var reqURL = "http://127.0.0.1:8000/QuePasApp/messages/send";
                     //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/messages/send";
                 $http.post(reqURL, msgForm, {
                     transformRequest: angular.identity,

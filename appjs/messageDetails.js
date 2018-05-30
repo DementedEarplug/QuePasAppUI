@@ -15,7 +15,7 @@ angular.module('AppChat').controller('MessageDetailsController', ['$http', '$log
                
             $log.log("MessageId : " + thisCtrl.currentMessageId.toString());
             var chatid = $routeParams.cid;
-            var reqURL = "http://192.168.0.3:8000/QuePasApp/messages/" + thisCtrl.currentMessageId + "/likes";
+            var reqURL = "http://127.0.0.1:8000/QuePasApp/messages/" + thisCtrl.currentMessageId + "/likes";
             //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/users/" + currentUserId + "/groups/";
             $http.get(reqURL).then( function(response){
                 // Get the messages from the server through the rest api
@@ -34,7 +34,7 @@ angular.module('AppChat').controller('MessageDetailsController', ['$http', '$log
             });
 
 
-            var reqURL = "http://192.168.0.3:8000/QuePasApp/messages/" + thisCtrl.currentMessageId + "/dislikes";
+            var reqURL = "http://127.0.0.1:8000/QuePasApp/messages/" + thisCtrl.currentMessageId + "/dislikes";
             //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/users/" + currentUserId + "/groups/";
             $http.get(reqURL).then( function(response){
                 // Get the messages from the server through the rest api

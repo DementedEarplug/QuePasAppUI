@@ -20,7 +20,7 @@ angular.module('AppChat').controller('RegisterController', ['$http', '$log', '$s
             userForm.append("phonenumber", phoneEdit);
             userForm.append("email", this.email);
             
-            var reqURL = "http://192.168.0.3:8000/QuePasApp/users/new";
+            var reqURL = "http://127.0.0.1:8000/QuePasApp/users/new";
             //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/users/new";
             $http.post(reqURL, userForm, {
                 transformRequest: angular.identity,

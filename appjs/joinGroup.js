@@ -42,7 +42,7 @@ angular.module('AppChat').controller('JoinGroupsController', ['$http', '$log', '
         }
 
         this.joinGroup = function(gId, gName){
-            var reqURL = "http://192.168.0.3:8000/QuePasApp/groups/" + gId + "/addUser/" + currentUserId;
+            var reqURL = "http://127.0.0.1:8000/QuePasApp/groups/" + gId + "/addUser/" + currentUserId;
             //var reqURL = "https://quepasapp.herokuapp.com/QuePasApp/groups/" + gId + "/addUser/" + currentUserId;
             $http.post(reqURL).then( function(response){
                 // Get the messages from the server through the rest api
